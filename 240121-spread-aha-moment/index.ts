@@ -23,9 +23,10 @@ const numbers = {
     },
 }
 
-const spreadMapped: any = {};
+let spreadMapped: any = {};
 const jsonMapped: any = {};
 const objectAssignMapped: any = {};
+
 
 tests.forEach(testCase => {
     spreadMapped[testCase] = {
@@ -37,11 +38,28 @@ tests.forEach(testCase => {
 
 
 spreadMapped["testcase 0"].first.a = 23;
+spreadMapped["testcase 0"].first.b = 42;
+spreadMapped["testcase 0"].first.c = 13;
+
 jsonMapped["testcase 0"].first.a = 23;
+jsonMapped["testcase 0"].first.b = 42;
+jsonMapped["testcase 0"].first.c = 13;
+
 objectAssignMapped["testcase 0"].first.a = 23;
+objectAssignMapped["testcase 0"].first.b = 42;
+objectAssignMapped["testcase 0"].first.c = 13;
 
-console.log(spreadMapped);
+console.log("Spread:", spreadMapped);
+console.log("JSON:", jsonMapped);
+console.log("Object assign:", objectAssignMapped);
 
-console.log(jsonMapped);
+// console.log("##############")
 
-console.log(objectAssignMapped);
+// spreadMapped["testcase 0"] = {
+//     ...spreadMapped["testcase 0"],
+//     first: {
+//         ...spreadMapped["testcase 0"].first,
+//         a: 23
+//     }
+// }
+// console.log(spreadMapped)
